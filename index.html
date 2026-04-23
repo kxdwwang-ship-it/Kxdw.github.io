@@ -1,110 +1,94 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人作品集 | 新媒体运营</title>
+    <style>
+        /* 基础样式 - 极简主义 */
+        :root {
+            --bg: #fdfdfd;
+            --text: #1a1a1a;
+            --accent: #ff2442; /* 小红书风格红 */
+            --gray: #666;
+            --card-bg: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'PingFang SC', 'Helvetica Neue', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 0 20px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 0; }
+        
+        /* 模块布局 */
+        section { margin-bottom: 80px; }
+        h2 { font-size: 1.8rem; margin-bottom: 30px; letter-spacing: -0.5px; }
+
+        /* 首页 */
+        .hero { text-align: center; padding: 100px 0; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; color: var(--gray); }
+
+        /* 卡片网格 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { 
+            background: var(--card-bg); padding: 30px; border-radius: 20px; 
+            border: 1px solid #eee; transition: all 0.3s ease;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .card h3 { margin-bottom: 15px; }
+        .card p { color: var(--gray); font-size: 0.95rem; }
+
+        /* 技能标签 */
+        .skills { display: flex; flex-wrap: wrap; gap: 12px; }
+        .tag { background: #f0f0f0; padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="zh-CN"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;个人作品集 | 新媒体运营&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 基础样式 - 极简主义 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--bg: #fdfdfd;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--text: #1a1a1a;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--accent: #ff2442; /* 小红书风格红 */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--gray: #666;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--card-bg: #ffffff;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>* { margin: 0; padding: 0; box-sizing: border-box; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: 'PingFang SC', 'Helvetica Neue', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 0 20px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.container { max-width: 900px; margin: 0 auto; padding: 60px 0; }</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 模块布局 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>section { margin-bottom: 80px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>h2 { font-size: 1.8rem; margin-bottom: 30px; letter-spacing: -0.5px; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 首页 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero { text-align: center; padding: 100px 0; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero h1 { font-size: 3.5rem; margin-bottom: 10px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero p { font-size: 1.2rem; color: var(--gray); }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 卡片网格 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--card-bg); padding: 30px; border-radius: 20px;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #eee; transition: all 0.3s ease;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card h3 { margin-bottom: 15px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card p { color: var(--gray); font-size: 0.95rem; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 技能标签 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.skills { display: flex; flex-wrap: wrap; gap: 12px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.tag { background: #f0f0f0; padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 响应式 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 600px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.hero h1 { font-size: 2.5rem; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="hero"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;[你的名字]&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;新媒体运营 | 内容增长专家 | 擅长IP化表达与用户留存&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="projects"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;项目案例&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;教育账号矩阵搭建&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;从0到1负责账号矩阵，通过精细化内容分层，实现总粉量突破10w，转化率提升15%。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;小红书爆款增长&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;复盘用户痛点，产出高互动图文，单篇笔记曝光超200w，有效沉淀私域流量。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;个人IP孵化&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;通过人设定位与脚本优化，打造垂直领域专业人设，三个月内涨粉至5w+。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="skills"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;核心技能&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="skills"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;内容策划&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;数据分析&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;用户增长&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;脚本撰写&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;社群运营&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;视觉审美&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="about"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;关于我&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;不仅是一个运营，更是一个内容创作的长期主义者。相信逻辑与感性的结合能够创造出跨越屏幕的价值。期待与有趣的团队并肩作战。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<div class="container">
+    <section class="hero">
+        <h1>[你的名字]</h1>
+        <p>新媒体运营 | 内容增长专家 | 擅长IP化表达与用户留存</p>
+    </section>
+
+    <section id="projects">
+        <h2>项目案例</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>教育账号矩阵搭建</h3>
+                <p>从0到1负责账号矩阵，通过精细化内容分层，实现总粉量突破10w，转化率提升15%。</p>
+            </div>
+            <div class="card">
+                <h3>小红书爆款增长</h3>
+                <p>复盘用户痛点，产出高互动图文，单篇笔记曝光超200w，有效沉淀私域流量。</p>
+            </div>
+            <div class="card">
+                <h3>个人IP孵化</h3>
+                <p>通过人设定位与脚本优化，打造垂直领域专业人设，三个月内涨粉至5w+。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>核心技能</h2>
+        <div class="skills">
+            <span class="tag">内容策划</span>
+            <span class="tag">数据分析</span>
+            <span class="tag">用户增长</span>
+            <span class="tag">脚本撰写</span>
+            <span class="tag">社群运营</span>
+            <span class="tag">视觉审美</span>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>关于我</h2>
+        <p>不仅是一个运营，更是一个内容创作的长期主义者。相信逻辑与感性的结合能够创造出跨越屏幕的价值。期待与有趣的团队并肩作战。</p>
+    </section>
+</div>
+
 </body>
 </html>
