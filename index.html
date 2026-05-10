@@ -13,8 +13,8 @@
             --bg-color: #f9f9f7; /* 极简纸张色 */
             --text-main: #121212;
             --text-sub: #666666;
-            --accent-color: #ff2442; /* 品牌强调色 */
-            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --accent-color: #ff2442; 
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,6 +24,7 @@
             font-family: 'Inter', -apple-system, sans-serif;
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
@@ -34,45 +35,83 @@
             justify-content: space-between;
             align-items: center;
             padding: 40px 0;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
-        nav a { text-decoration: none; color: var(--text-main); margin-left: 30px; }
+        nav a { text-decoration: none; color: var(--text-main); margin-left: 30px; transition: 0.3s; }
+        nav a:hover { opacity: 0.6; }
 
-        /* --- 首页 (Hero) --- */
+        /* --- 首页 (Hero - 包含照片展示) --- */
         .hero {
-            padding: 120px 0 160px;
-            max-width: 800px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr; /* 左右比例 */
+            align-items: center;
+            padding: 80px 0 140px;
+            gap: 80px;
         }
-        .hero h1 {
+
+        .hero-content h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-size: clamp(2.8rem, 6vw, 4.8rem);
             line-height: 1.1;
             font-weight: 400;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             font-style: italic;
         }
-        .hero p {
-            font-size: 1.25rem;
+        .hero-content p {
+            font-size: 1.15rem;
             color: var(--text-sub);
             font-weight: 300;
-            max-width: 500px;
+            max-width: 440px;
         }
 
-        /* --- 项目案例 (Editorial Grid) --- */
+        /* 照片容器样式 */
+        .hero-photo-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        .hero-photo {
+            width: 100%;
+            aspect-ratio: 3 / 4; /* 经典人像比例 */
+            background-color: #eee;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+            display: block;
+            /* 增加一个淡入效果 */
+            animation: imageFade 1.2s var(--transition);
+        }
+        .photo-caption {
+            position: absolute;
+            bottom: -35px;
+            right: 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--text-sub);
+        }
+
+        @keyframes imageFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- 项目案例 --- */
         .section-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 60px;
             border-bottom: 1px solid #e0e0e0;
             padding-bottom: 20px;
+            font-weight: 400;
         }
 
         .project-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            gap: 40px;
+            gap: 50px;
             margin-bottom: 120px;
         }
 
@@ -82,24 +121,15 @@
             transition: var(--transition);
         }
 
-        /* 模仿非对称错落布局 */
-        .project-card:nth-child(even) { margin-top: 100px; }
+        /* 模仿 Corie 的不规则布局 */
+        .project-card:nth-child(even) { margin-top: 120px; }
 
         .image-placeholder {
             width: 100%;
-            aspect-ratio: 4 / 5;
+            aspect-ratio: 16 / 10;
             background-color: #ededed;
-            border-radius: 4px;
-            overflow: hidden;
             margin-bottom: 25px;
-            position: relative;
-        }
-        /* 实际使用时可替换为 <img> */
-        .image-placeholder::after {
-            content: "PROJECT IMAGE";
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 0.7rem; color: #aaa; letter-spacing: 2px;
+            overflow: hidden;
         }
 
         .project-card h3 {
@@ -109,9 +139,9 @@
             margin-bottom: 10px;
         }
         .project-card p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-sub);
-            max-width: 90%;
+            letter-spacing: 0.5px;
         }
 
         /* --- 技能 & 关于 --- */
@@ -126,32 +156,35 @@
             margin-top: 20px;
         }
         .skill-list li {
-            font-size: 1.1rem;
-            padding: 10px 0;
+            font-size: 1.05rem;
+            padding: 12px 0;
             border-bottom: 0.5px solid #e0e0e0;
             display: flex;
             justify-content: space-between;
         }
-        .skill-list li span { color: var(--text-sub); font-size: 0.8rem; }
+        .skill-list li span { color: var(--text-sub); font-size: 0.75rem; text-transform: uppercase; }
 
         .about-text {
             font-size: 1.1rem;
             color: var(--text-sub);
+            font-weight: 300;
         }
 
         /* --- 响应式设计 --- */
-        @media (max-width: 850px) {
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; gap: 60px; padding: 40px 0 100px; }
+            .hero-photo-wrapper { order: -1; width: 85%; margin: 0 auto; }
             .project-card, .project-card:nth-child(even) { grid-column: span 12; margin-top: 0; }
             .details-section { grid-template-columns: 1fr; gap: 60px; }
-            .hero h1 { font-size: 3.5rem; }
         }
 
         footer {
-            padding: 60px 0;
+            padding: 80px 0 40px;
             text-align: center;
-            font-size: 0.8rem;
-            color: #aaa;
+            font-size: 0.75rem;
+            color: #bbb;
             border-top: 1px solid #eee;
+            letter-spacing: 2px;
         }
     </style>
 </head>
@@ -159,7 +192,7 @@
 
 <div class="container">
     <nav>
-        <div class="brand">PORTFOLIO.</div>
+        <div class="brand">K X D W .</div>
         <div class="links">
             <a href="#projects">Work</a>
             <a href="#about">About</a>
@@ -167,30 +200,35 @@
     </nav>
 
     <section class="hero">
-        <h1>Hi, I'm [王筱娅] — 专注于通过内容驱动业务增长。</h1>
-        <p>深耕新媒体运营，擅长从0-1搭建品牌账号体系，用数据逻辑拆解爆款密码。</p>
+        <div class="hero-content">
+            <h1>Hi, I'm 王筱娅 — <br>用内容触达用户，<br>驱动真实增长。</h1>
+            <p>深耕新媒体运营 4 年，擅长品牌账号体系从0到1的搭建，致力于在审美与商业价值之间寻找最优解。</p>
+        </div>
+        
+        <div class="hero-photo-wrapper">
+            <!-- 这里放置你的个人照片路径 -->
+            <img src="me.jpg" alt="王筱娅" class="hero-photo">
+            <div class="photo-caption">Based in China / 2026.</div>
+        </div>
     </section>
 
     <section id="projects">
         <h2 class="section-title">Selected Projects</h2>
         <div class="project-grid">
-            <!-- 案例 1 -->
             <div class="project-card">
                 <div class="image-placeholder"></div>
-                <h3>教育账号矩阵从0-1</h3>
-                <p>搭建涵盖抖音、视频号的矩阵体系。通过精细化内容运营，3个月实现总粉丝量10w+，单条视频最高转化私域1000+人。</p>
+                <h3>教育账号矩阵运营</h3>
+                <p>CONTENT STRATEGY & GROWTH</p>
             </div>
-            <!-- 案例 2 -->
             <div class="project-card">
                 <div class="image-placeholder"></div>
-                <h3>小红书高价值增长</h3>
-                <p>针对垂直赛道进行人设建模，运用“封面美学+SEO词包”策略，笔记平均互动量提升300%，精准获客成本降低40%。</p>
+                <h3>小红书高价值增长案例</h3>
+                <p>SOCIAL MEDIA MARKETING</p>
             </div>
-            <!-- 案例 3 -->
             <div class="project-card">
                 <div class="image-placeholder"></div>
-                <h3>个人/企业IP孵化</h3>
-                <p>负责从选题、脚本到拍摄的全流程。成功孵化百万级播放量案例，助力品牌建立深度用户信任感。</p>
+                <h3>个人/企业 IP 孵化</h3>
+                <p>PERSONAL BRANDING</p>
             </div>
         </div>
     </section>
@@ -199,25 +237,25 @@
         <div>
             <h2 class="section-title">Core Skills</h2>
             <ul class="skill-list">
-                <li>内容策略 <span>Content Strategy</span></li>
-                <li>用户增长 <span>User Growth</span></li>
+                <li>内容策划 <span>Content Strategy</span></li>
+                <li>用户增长 <span>Growth Hacking</span></li>
                 <li>爆款拆解 <span>Viral Analysis</span></li>
-                <li>短视频编导 <span>Video Directing</span></li>
-                <li>私域转化 <span>Private Traffic</span></li>
+                <li>视觉审美 <span>Visual Aesthetics</span></li>
+                <li>数据驱动 <span>Data Driven</span></li>
             </ul>
         </div>
         <div>
             <h2 class="section-title">About Me</h2>
             <p class="about-text">
-                我一直相信，新媒体运营不仅是文字与图片的堆砌，更是对用户心理的精准捕捉。
+                我一直相信，新媒体运营不仅是文案与图片的堆砌，更是对用户心理的精准捕捉。
                 <br><br>
-                我热衷于在变化莫测的平台算法中寻找确定性，用极具美感的视觉语言传递品牌价值。目前正在寻求能共同成长的合作机会。
+                我热衷于在瞬息万变的平台规则中寻找确定性，用极具质感的叙事方式为品牌注入生命力。
             </p>
         </div>
     </section>
 
     <footer>
-        &copy; 2026 Crafted by YourName. 保持理性，热爱表达。
+        &copy; 2026 Crafted by 王筱娅. 保持表达，保持理性。
     </footer>
 </div>
 
