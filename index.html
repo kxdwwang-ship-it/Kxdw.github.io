@@ -3,91 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人作品集 | 新媒体运营</title>
+    <title>Portfolio | 新媒体运营专家</title>
+    
+    <!-- 引入高级感字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <style>
-        /* 基础样式 - 极简主义 */
         :root {
-            --bg: #fdfdfd;
-            --text: #1a1a1a;
-            --accent: #ff2442; /* 小红书风格红 */
-            --gray: #666;
-            --card-bg: #ffffff;
+            --bg-color: #f9f9f7; /* 极简纸张色 */
+            --text-main: #121212;
+            --text-sub: #666666;
+            --accent-color: #ff2442; /* 品牌强调色 */
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'PingFang SC', 'Helvetica Neue', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 0 20px; }
-        .container { max-width: 900px; margin: 0 auto; padding: 60px 0; }
-        
-        /* 模块布局 */
-        section { margin-bottom: 80px; }
-        h2 { font-size: 1.8rem; margin-bottom: 30px; letter-spacing: -0.5px; }
-
-        /* 首页 */
-        .hero { text-align: center; padding: 100px 0; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; color: var(--gray); }
-
-        /* 卡片网格 */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .card { 
-            background: var(--card-bg); padding: 30px; border-radius: 20px; 
-            border: 1px solid #eee; transition: all 0.3s ease;
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .card h3 { margin-bottom: 15px; }
-        .card p { color: var(--gray); font-size: 0.95rem; }
 
-        /* 技能标签 */
-        .skills { display: flex; flex-wrap: wrap; gap: 12px; }
-        .tag { background: #f0f0f0; padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 
-        /* 响应式 */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2.5rem; }
+        /* --- 导航 --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        nav a { text-decoration: none; color: var(--text-main); margin-left: 30px; }
+
+        /* --- 首页 (Hero) --- */
+        .hero {
+            padding: 120px 0 160px;
+            max-width: 800px;
+        }
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            line-height: 1.1;
+            font-weight: 400;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-sub);
+            font-weight: 300;
+            max-width: 500px;
+        }
+
+        /* --- 项目案例 (Editorial Grid) --- */
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 40px;
+            margin-bottom: 120px;
+        }
+
+        .project-card {
+            grid-column: span 6;
+            margin-bottom: 80px;
+            transition: var(--transition);
+        }
+
+        /* 模仿非对称错落布局 */
+        .project-card:nth-child(even) { margin-top: 100px; }
+
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            background-color: #ededed;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        /* 实际使用时可替换为 <img> */
+        .image-placeholder::after {
+            content: "PROJECT IMAGE";
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.7rem; color: #aaa; letter-spacing: 2px;
+        }
+
+        .project-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .project-card p {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            max-width: 90%;
+        }
+
+        /* --- 技能 & 关于 --- */
+        .details-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            padding-bottom: 100px;
+        }
+        .skill-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        .skill-list li {
+            font-size: 1.1rem;
+            padding: 10px 0;
+            border-bottom: 0.5px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .skill-list li span { color: var(--text-sub); font-size: 0.8rem; }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+        }
+
+        /* --- 响应式设计 --- */
+        @media (max-width: 850px) {
+            .project-card, .project-card:nth-child(even) { grid-column: span 12; margin-top: 0; }
+            .details-section { grid-template-columns: 1fr; gap: 60px; }
+            .hero h1 { font-size: 3.5rem; }
+        }
+
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #aaa;
+            border-top: 1px solid #eee;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <nav>
+        <div class="brand">PORTFOLIO.</div>
+        <div class="links">
+            <a href="#projects">Work</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
     <section class="hero">
-        <h1>[王筱娅]</h1>
-        <p>新媒体运营 | 内容增长专家 | 擅长IP化表达与用户留存</p>
+        <h1>Hi, I'm [你的姓名] — 专注于通过内容驱动业务增长。</h1>
+        <p>深耕新媒体运营，擅长从0-1搭建品牌账号体系，用数据逻辑拆解爆款密码。</p>
     </section>
 
     <section id="projects">
-        <h2>项目案例</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>教育账号矩阵搭建</h3>
-                <p>从0到1负责账号矩阵，通过精细化内容分层，实现总粉量突破10w，转化率提升15%。</p>
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="project-grid">
+            <!-- 案例 1 -->
+            <div class="project-card">
+                <div class="image-placeholder"></div>
+                <h3>教育账号矩阵从0-1</h3>
+                <p>搭建涵盖抖音、视频号的矩阵体系。通过精细化内容运营，3个月实现总粉丝量10w+，单条视频最高转化私域1000+人。</p>
             </div>
-            <div class="card">
-                <h3>小红书爆款增长</h3>
-                <p>复盘用户痛点，产出高互动图文，单篇笔记曝光超200w，有效沉淀私域流量。</p>
+            <!-- 案例 2 -->
+            <div class="project-card">
+                <div class="image-placeholder"></div>
+                <h3>小红书高价值增长</h3>
+                <p>针对垂直赛道进行人设建模，运用“封面美学+SEO词包”策略，笔记平均互动量提升300%，精准获客成本降低40%。</p>
             </div>
-            <div class="card">
-                <h3>个人IP孵化</h3>
-                <p>通过人设定位与脚本优化，打造垂直领域专业人设，三个月内涨粉至5w+。</p>
+            <!-- 案例 3 -->
+            <div class="project-card">
+                <div class="image-placeholder"></div>
+                <h3>个人/企业IP孵化</h3>
+                <p>负责从选题、脚本到拍摄的全流程。成功孵化百万级播放量案例，助力品牌建立深度用户信任感。</p>
             </div>
         </div>
     </section>
 
-    <section id="skills">
-        <h2>核心技能</h2>
-        <div class="skills">
-            <span class="tag">内容策划</span>
-            <span class="tag">数据分析</span>
-            <span class="tag">用户增长</span>
-            <span class="tag">脚本撰写</span>
-            <span class="tag">社群运营</span>
-            <span class="tag">视觉审美</span>
+    <section class="details-section" id="about">
+        <div>
+            <h2 class="section-title">Core Skills</h2>
+            <ul class="skill-list">
+                <li>内容策略 <span>Content Strategy</span></li>
+                <li>用户增长 <span>User Growth</span></li>
+                <li>爆款拆解 <span>Viral Analysis</span></li>
+                <li>短视频编导 <span>Video Directing</span></li>
+                <li>私域转化 <span>Private Traffic</span></li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="section-title">About Me</h2>
+            <p class="about-text">
+                我一直相信，新媒体运营不仅是文字与图片的堆砌，更是对用户心理的精准捕捉。
+                <br><br>
+                我热衷于在变化莫测的平台算法中寻找确定性，用极具美感的视觉语言传递品牌价值。目前正在寻求能共同成长的合作机会。
+            </p>
         </div>
     </section>
 
-    <section id="about">
-        <h2>关于我</h2>
-        <p>不仅是一个运营，更是一个内容创作的长期主义者。相信逻辑与感性的结合能够创造出跨越屏幕的价值。期待与有趣的团队并肩作战。</p>
-    </section>
+    <footer>
+        &copy; 2026 Crafted by YourName. 保持理性，热爱表达。
+    </footer>
 </div>
 
 </body>
